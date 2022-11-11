@@ -1,0 +1,58 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  indexphotos:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./index-photos
+      Description: ''
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::704995242206:role/service-role/index-photos-role-p7kfyg0h'
+  searchphotos:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function1.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./search-photos
+      Description: ''
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::704995242206:role/service-role/search-photos-role-z2eim79w'
+
+  # Lambda1:
+  #   Type: AWS::Lambda::Function
+  #   Properties:
+  #     Code:
+  #       S3Bucket: photoalbumlambdas
+  #       S3Key: index-photo.zip
+  #     Description: Lambda function Index CF
+  #     MemorySize: 128
+  #     Environment:
+  #       Variables:
+  #         REGION: us-east-1
+  #     Handler: lambda_function.lambda_handler
+  #     Role: 'arn:aws:iam::704995242206:role/service-role/index-photos-role-p7kfyg0h'
+  #     Timeout: 30
+  #     Runtime: python3.9
+  #     FunctionName: index-photos2
+
+  # Lambda2:
+  #   Type: AWS::Lambda::Function
+  #   Properties:
+  #     Code:
+  #       S3Bucket: photoalbumlambdas
+  #       S3Key: search-photo.zip
+  #     Description: Lambda function Search CF
+  #     MemorySize: 128
+  #     Environment:
+  #       Variables:
+  #         REGION: us-east-1
+  #     Handler: lambda_function.lambda_handler
+  #     Role: 'arn:aws:iam::704995242206:role/service-role/search-photos-role-z2eim79w'
+  #     Timeout: 30
+  #     Runtime: python3.9
+  #     FunctionName: search-photos2
