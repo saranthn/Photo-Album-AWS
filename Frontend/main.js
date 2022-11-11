@@ -25,6 +25,11 @@ function getPhotos(text)
 
     		var photo_results = result['data']['results'];
 
+            if (photo_results.length == 0)
+            {
+                alert("No images found for your search");
+            }
+
     		var photosDiv = document.getElementById('photos_results');
     		photosDiv.innerHTML = "";
 
